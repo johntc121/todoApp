@@ -45,10 +45,17 @@ class App extends Component {
 
   //Add Todo
   addTodo = (title) => {
-    axios.post('https://jsonplaceholder.typicode.com/todos', {
+    // axios.post('https://jsonplaceholder.typicode.com/todos', {
+    //   title: title,
+    //   completed: false
+    // }).then(res => this.setState({todos: [...this.state.todos, res.data]}))
+    const newTodo = {
+      id: uuid.v4(),
       title: title,
       completed: false
-    }).then(res => this.setState({todos: [...this.state.todos, res.data]}))
+    }
+
+    this.setState({todos: [...this.state.todos, newTodo]})
     
   }
 
