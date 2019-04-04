@@ -14,9 +14,15 @@ export class AddTodo extends Component {
     });
 
     onSubmit = (e) => {
-        e.preventDefault();
-        this.props.addTodo(this.state.title);
-        this.setState({title: ''});
+        if(this.state.title !== ''){
+            e.preventDefault();
+            this.props.addTodo(this.state.title);
+            this.setState({title: ''});
+        }
+        else{
+            alert("Please enter a title");
+            e.preventDefault();
+        }
     }
 
     render(){
